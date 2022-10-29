@@ -38,7 +38,7 @@ namespace Lessons
             Task task2 = Task.Factory.StartNew(() => Console.WriteLine("Task2 is executed."));
             Task task3 = Task.Run(program.PrintOneAsync);
             Task task4 = Task.Run(program.PrintTwoAsync);
-            #region dzer chtal
+            #region 
             Console.ReadLine();
             #endregion
         }
