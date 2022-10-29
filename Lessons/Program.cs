@@ -18,81 +18,37 @@ namespace Lessons
         static void Main(string[] args)
         {
             Program program = new Program();
-            //Thread thread1 = new Thread(program.PrintOneByThread);
-            //thread1.Start();
-
-            
-            Task task1 = Task.Run(program.PrintOneAsync);
-            Task task2 = Task.Run(program.PrintTwoAsync);
 
 
+            Thread thread2 = new Thread(program.M1);
+            thread2.Start();
+            Thread thread3 = new Thread(program.M2);
+            thread3.Start();
 
+            for (int i = 0; i < 20; i++)
+            {
+                Console.WriteLine("Main");
+            }
             Console.ReadLine();
         }
-        public void PrintOne()
+        public void M1()
         {
-            for (int i = 0; i < 100; i++)
+            for (int i = 0; i < 20; i++)
             {
-                Console.Write(1);
+                Console.WriteLine("MMM111");
             }
         }
-        public void PrintTwo()
+        public void M2()
         {
-            for (int i = 0; i < 100; i++)
+            for (int i = 0; i < 20; i++)
             {
-                Console.Write(2);
+                Console.WriteLine("MMM222222");
             }
+
+
         }
-        public void PrintOneByThread()
-        {
-            for (int i = 0; i < 100; i++)
-            {
-                Thread.Sleep(1000);
-                Console.Write(1);
-            }
-        }
-        public void PrintTwoByThread()
-        {
-            for (int i = 0; i < 100; i++)
-            {
-                Thread.Sleep(1000);
-                Console.Write(2);
-            }
-        }
-        public void PrintOneByTask()
-        {
-            for (int i = 0; i < 100; i++)
-            {
-                Console.Write(1);
-            };
-        }
-        public void PrintTwoByTask()
-        {
-            for (int i = 0; i < 100; i++)
-            {
-                Console.Write(2);
-            };
-        }
-        public async Task PrintOneAsync()
-        {
-            await Task.Run(() =>
-            {
-                for (int i = 0; i < 100; i++)
-                {
-                    Console.Write(1);
-                }
-            });
-        }
-        public async Task PrintTwoAsync()
-        {
-            await Task.Run(() =>
-            {
-                for (int i = 0; i < 100; i++)
-                {
-                    Console.Write(2);
-                }
-            });
-        }
+
+
     }
     
 }
